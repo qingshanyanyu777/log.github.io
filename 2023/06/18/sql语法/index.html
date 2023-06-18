@@ -1,0 +1,398 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>sql语句 | 青衫烟雨</title>
+        <meta name="author" content="lisi777" />
+        <meta name="description" content="" />
+        <meta name="keywords" content="" />
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+        <link rel="icon" href="/images/avatar2.jpg" />
+        <script src="https://cdn.staticfile.org/vue/3.2.47/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.3.0/css/all.min.css" />
+<link rel="stylesheet" href="/css/fonts.min.css" />
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://cdn.staticfile.org/highlight.js/11.7.0/highlight.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://cdn.staticfile.org/highlight.js/11.7.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
+
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+
+
+<script src="https://cdn.staticfile.org/twikoo/1.6.10/twikoo.all.min.js"></script>
+
+
+
+<link rel="stylesheet" href="/css/main.css" />
+
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body>
+        <div id="layout">
+            <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <p>加载过慢请开启缓存&ensp;浏览器默认开启</p>
+                    <img src="/images/loading.gif" />
+                </div>
+            </div>
+            </transition>
+            <transition name="into">
+            <div id="main" v-show="!loading">
+                <nav id="menu" ref="menu">
+    <div class="desktop-menu">
+        <a class="title" href="/">
+            <span>青衫烟雨</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </div>
+    <div id="mobile-menu">
+        <div class="curtain" v-show="showMenu" @click="showMenu = !showMenu"></div>
+        <div class="title" @click="showMenu = !showMenu">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;青衫烟雨</span>
+        </div>
+        <transition name="slide">
+        <div class="items" v-show="showMenu">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-house fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-id-card fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-box-archive fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-bookmark fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-tags fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                </div>
+            </a>
+            
+        </div>
+        </transition>
+    </div>
+</nav>
+
+                <div class="article">
+    <div>
+        <h1>sql语句</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/6/18
+        </span>
+        
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <h1 id="sql语法"><a href="#sql语法" class="headerlink" title="sql语法"></a>sql语法</h1><h2 id="DML语句-数据增删改"><a href="#DML语句-数据增删改" class="headerlink" title="DML语句(数据增删改)"></a>DML语句(数据增删改)</h2><pre><code class="mysql">-- 增加
+insert into 表名(字段1,字段2...) value(值1,值2...)
+
+-- 修改
+update 表名 set 字段1=值1,字段2=值2 where 条件
+
+-- 删除
+delete from 表名 where 条件
+</code></pre>
+<p>​    </p>
+<h2 id="DQL-查询语句"><a href="#DQL-查询语句" class="headerlink" title="DQL(查询语句)"></a>DQL(查询语句)</h2><p>seleect</p>
+<p>​		字段列表</p>
+<p>from</p>
+<p>​		表名</p>
+<p>where</p>
+<p>​		条件列表</p>
+<p>group by</p>
+<p>​		分组字段列表</p>
+<p>having</p>
+<p>​		分组后条件列表</p>
+<p>order by</p>
+<p>​		排序字段列表</p>
+<p>limit</p>
+<p>​		分页参数</p>
+<pre><code class="mysql">-- distinct 去除重复数据
+select distinct workaddress 工作地址 from emp;
+</code></pre>
+<h3 id="条件查询"><a href="#条件查询" class="headerlink" title="条件查询"></a><strong>条件查询</strong></h3><p><img src="/2023/06/18/sql%E8%AF%AD%E6%B3%95/image-20230615195407558.png" alt="image-20230615195407558"></p>
+<p><img src="/2023/06/18/sql%E8%AF%AD%E6%B3%95/image-20230615195424295.png" alt="image-20230615195424295"></p>
+<pre><code class="mysql">select * from emp where idcard is null;
+
+select * from emp where idcard  is not null;
+
+select * from emp where age !=30;
+
+select * from emp where age &lt;&gt;30;
+
+select * from emp where age &gt;= 15 and age &lt;= 30 ;
+select * from emp where age &gt;= 15 &amp;&amp; age &lt;= 30 ;
+-- 小 and 大
+select * from emp where  age between 15 and 30;
+
+select * from emp where gender = &#39;女&#39;  &amp;&amp; age &lt; 30 ;
+
+-- 模糊查询 _匹配一位
+select * from emp where name like &#39;张_&#39; ;
+-- % 任意位匹配
+select * from emp where idcard like &#39;%6&#39;;
+</code></pre>
+<h3 id="聚合函数-count-max-min-avg-sum"><a href="#聚合函数-count-max-min-avg-sum" class="headerlink" title="聚合函数(count ,max,min,avg,sum)"></a><strong>聚合函数</strong>(count ,max,min,avg,sum)</h3><pre><code class="mysql">select count(idcard) from emp;
+
+select sum(age) from emp where workaddress like &#39;北京%&#39;;
+</code></pre>
+<blockquote>
+<p>null不参与运算</p>
+</blockquote>
+<blockquote>
+<p>where &gt;聚合函数 &gt;having</p>
+</blockquote>
+<pre><code class="my">select workaddress , count(*) 人数 from emp where age &lt;= 45 group by workaddress having count(*) &gt;=2;
+</code></pre>
+<h3 id="排序查询"><a href="#排序查询" class="headerlink" title="排序查询"></a>排序查询</h3><blockquote>
+<p>ASC升序查询(默认值)</p>
+<p>DESC降序查询</p>
+</blockquote>
+<pre><code class="mysql">select 字段列表 from 表名 order by 字段1 排序方式1 , 字段2 排序方式2;
+
+
+select * from emp order by age asc , entrydate desc;
+</code></pre>
+<h3 id="分页查询"><a href="#分页查询" class="headerlink" title="分页查询"></a>分页查询</h3><pre><code class="mysql">select 字段列表 from 表名 limit 起始索引,查询记录数;
+</code></pre>
+<p><img src="/2023/06/18/sql%E8%AF%AD%E6%B3%95/image-20230616155729183.png" alt="image-20230616155729183"></p>
+<h3 id="执行顺序"><a href="#执行顺序" class="headerlink" title="执行顺序"></a>执行顺序</h3><p><img src="/2023/06/18/sql%E8%AF%AD%E6%B3%95/image-20230616161549177.png" alt="image-20230616161549177"></p>
+<h2 id="DCL"><a href="#DCL" class="headerlink" title="DCL"></a>DCL</h2><p><img src="/2023/06/18/sql%E8%AF%AD%E6%B3%95/image-20230616164826008.png" alt="image-20230616164826008"></p>
+<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><p><img src="/2023/06/18/sql%E8%AF%AD%E6%B3%95/image-20230616200840824.png" alt="image-20230616200840824"></p>
+<pre><code class="mysql">select if(5&gt;3,&#39;true&#39;,&#39;false&#39;);
+
+select ifnull(&#39;ok&#39;,&#39;Default&#39;);
+
+select
+    name,
+    (case workaddress when &#39;上海市&#39; then&#39;一线城市&#39; when &#39;北京市&#39; then &#39;一线城市&#39; else &#39;二线程序&#39; end) as &#39;工作地址&#39;
+ from emp;
+</code></pre>
+<p><img src="/2023/06/18/sql%E8%AF%AD%E6%B3%95/image-20230616210217275.png" alt="image-20230616210217275"></p>
+<h2 id="约束"><a href="#约束" class="headerlink" title="约束"></a>约束</h2><p><img src="/2023/06/18/sql%E8%AF%AD%E6%B3%95/image-20230617180128409.png" alt="image-20230617180128409"></p>
+<blockquote>
+<p>1.非空约束 not null</p>
+<p>2.唯一约束 unique</p>
+<p>3.主键约束 primary key(自增:auto_increment)</p>
+<p>4.默认约束 default</p>
+<p>5.检查约束 check</p>
+<p>6.外键约束 foreign key</p>
+</blockquote>
+<h3 id="外键约束"><a href="#外键约束" class="headerlink" title="外键约束"></a>外键约束</h3><p><img src="/2023/06/18/sql%E8%AF%AD%E6%B3%95/image-20230617173441695.png" alt="image-20230617173441695"></p>
+<pre><code class="mysql">-- 添加外键
+alter table emp add constraint fk_emp_dept_id foreign key (dept_id) references dept(id);
+-- 删除外键
+alter table emp drop foreign key fk_emp_dept_id;
+--删除/更新行为 cascade
+alter table emp add constraint fk_emp_dept_id foreign key (dept_id) references dept(id)  on update cascade  on delete  cascade ;
+--删除/更新行为 set null 
+alter table emp add constraint fk_emp_dept_id foreign key (dept_id) references dept(id)  on update set null  on delete  set null ;
+</code></pre>
+<h2 id="多表查询"><a href="#多表查询" class="headerlink" title="多表查询"></a>多表查询</h2><h3 id="多表关系"><a href="#多表关系" class="headerlink" title="多表关系"></a>多表关系</h3><blockquote>
+<p>1.一对多</p>
+<pre><code>  **部门和员工**
+</code></pre>
+<p>​	建立外键</p>
+<p>2.多对多</p>
+<p>​	<strong>学生和课程</strong></p>
+<p>​	建立中间表 至少两个外键</p>
+<p>3.一对一</p>
+</blockquote>
+<p><strong>消除笛卡尔积</strong></p>
+<h3 id="内连接"><a href="#内连接" class="headerlink" title="内连接"></a>内连接</h3><h4 id="1-隐式内连接"><a href="#1-隐式内连接" class="headerlink" title="1.隐式内连接"></a>1.隐式内连接</h4><pre><code class="mysql">select 字段列表 from 表一 , 表二 where 条件;
+-- 实例
+select emp.name,dept.name from emp,dept where emp.dept_id = dept.id;
+</code></pre>
+<h4 id="2-显式内连接"><a href="#2-显式内连接" class="headerlink" title="2.显式内连接"></a>2.显式内连接</h4><pre><code class="mysql">select 字段列表 from 表一 inner join  表二 on 连接条件;
+
+select emp.name ,dept.name from emp inner join dept  on emp.dept_id = dept.id;
+</code></pre>
+<h3 id="外连接"><a href="#外连接" class="headerlink" title="外连接"></a>外连接</h3><h4 id="左外连接"><a href="#左外连接" class="headerlink" title="左外连接"></a>左外连接</h4><p>相当于查询表1(左表)的所有数据包含表一和表二的连接部分</p>
+<pre><code class="mysql">select 字段列表 from 表一 left[outer] join 表二 on 连接条件;
+
+select * ,dept.id from emp left join dept on emp.dept_id = dept.id;
+</code></pre>
+<h4 id="右外连接"><a href="#右外连接" class="headerlink" title="右外连接"></a>右外连接</h4><p>相当于查询表2(右表)的所有数据包含表一和表二的连接部分</p>
+<pre><code class="mysql">select 字段列表 from 表一 right[outer] join 表二 on 连接条件;
+</code></pre>
+<h3 id="自连接"><a href="#自连接" class="headerlink" title="自连接"></a>自连接</h3><pre><code class="sql">select 字段名称 from 表一 别名A join 表一 别名B on 条件;
+</code></pre>
+<h3 id="联合查询"><a href="#联合查询" class="headerlink" title="联合查询"></a>联合查询</h3><pre><code class="sql">select 字段列表 from 表A
+union[ALL]
+select 字段列表 from 表B;
+</code></pre>
+<p><strong>union 和union all</strong></p>
+<p>union是自动去重</p>
+<p>union all 直接联合</p>
+<h3 id="子查询"><a href="#子查询" class="headerlink" title="子查询"></a>子查询</h3><p>嵌套select语句</p>
+<pre><code class="mysql">select * from t1 where column1 = (select column from t2)
+
+-- 行子查询
+select * from emp where salary &gt; all (select salary from emp where dept_id = (select id from dept where name = &#39;财务部&#39;));
+
+select * from emp where salary &gt; any (select salary from emp where dept_id = (select id from dept where name = &#39;财务部&#39;));
+
+-- 列子查询
+select * from emp where (managerid,salary) = (select managerid,salary from emp where name = &#39;张无忌&#39;);
+
+-- 表子查询
+select *from emp where(job,salary) in (select job,salary from emp where name = &#39;鹿杖客&#39; or name = &#39;宋远桥&#39;);
+</code></pre>
+<h2 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h2><p>ACID</p>
+<p>1.原子性(Atimicity)</p>
+<p>2.一致性(consistency)</p>
+<p>3.隔离性(isolation)</p>
+<p>4.持久性(Durability)</p>
+<h3 id="并发事务问题"><a href="#并发事务问题" class="headerlink" title="并发事务问题"></a>并发事务问题</h3><p><img src="/2023/06/18/sql%E8%AF%AD%E6%B3%95/image-20230618093555537.png" alt="image-20230618093555537"><img src="/2023/06/18/sql%E8%AF%AD%E6%B3%95/image-20230618093647740.png" alt="image-20230618093647740"></p>
+<h2 id="数据库引擎"><a href="#数据库引擎" class="headerlink" title="数据库引擎"></a>数据库引擎</h2><ul>
+<li>连接层</li>
+<li>服务层</li>
+<li>引擎层</li>
+<li>存储层</li>
+</ul>
+<p><img src="/2023/06/18/sql%E8%AF%AD%E6%B3%95/image-20230618110424538.png" alt="image-20230618110424538"></p>
+<ul>
+<li>面试题 InnoDB 和MyISAM区别</li>
+</ul>
+<p><img src="/2023/06/18/sql%E8%AF%AD%E6%B3%95/image-20230618132436034.png" alt="image-20230618132436034"></p>
+
+    </div>
+    
+    
+    
+    
+    
+    
+    <div id="comment">
+        <div id="twikoo-container"></div>
+    </div>
+    
+    
+</div>
+
+                <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2023 青衫烟雨
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;lisi777
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+            </div>
+            </transition>
+            
+            <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+            </transition>
+            
+        </div>
+        <script src="/js/main.js"></script>
+        
+        
+
+
+
+<script>
+    twikoo.init({
+        el: "#twikoo-container",
+        envId: "",
+        region: "",
+        path: location.pathname,
+        lang: "zh-CN",
+    })
+</script>
+
+
+        
+    </body>
+</html>
